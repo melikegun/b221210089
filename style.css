@@ -1,15 +1,32 @@
-body{
-    background-color: rgb(255, 255, 255);
+#arkaplanresim{
+    background-image: url("resimler/arka.jpeg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
-#anasayfabody{
-    background-color: rgb(136, 136, 136);
+#arkaplanrenk{
+    background-color: rgb(0, 0, 0);
 }
 h3{
     font-style:initial;
     font-weight:bold;
-
-    
+  
 }
 .sayfaArkaplan{
     background-color: rgb(255, 255, 255);
+}
+.yazi {
+    font-family: "Times New Roman", Times, serif;
+  }  
+.konum
+   {
+      position: absolute;
+
+      left: 100px;
+      top: 150px;
+   }
+   h1{
+    text-align: center;
+    border:solid 1px rgb(0, 0, 0);
 }
