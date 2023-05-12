@@ -19,14 +19,15 @@ h3{
 .yazi {
     font-family: "Times New Roman", Times, serif;
   }  
-.konum
+.konum5
    {
       position: absolute;
 
       left: 100px;
       top: 150px;
    }
-   h1{
+h1{
     text-align: center;
     border:solid 1px rgb(0, 0, 0);
 }
+
