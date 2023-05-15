@@ -21,16 +21,17 @@
                 </div>
                 
                 <ul class="nav navbar-nav">
+                    
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> BİLGİLER <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="hakkimda.html">Hakkımda</a></li>
                             <li><a href="ilgialani.html">İlgi Alanlarım</a></li>
-                            <li><a href="#">Hobilerim</a></li>
-                      </ul>
+                            <li><a href="hobiler.html">Hobilerim</a></li>
+                        </ul>
                     </li>
 
                     <li><a href="cv.html">EĞİTİM</a></li>
-                    
+
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> ŞEHRİM <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="sehrim.html">İSTANBUL</a></li>
@@ -43,43 +44,38 @@
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
 
             </div>
 
         </nav>
         
-        <div class="container">
+        
+        <form action="login.php" method="post">
+            Kullanıcı Adı:<br>
+            <input type="text" name="kullanici"  placeholder="Kullanıcı Adınızı Girin…"><br>
+            Şifre:<br>
+            <input type="password" name="sifre"  placeholder="Şifrenzizi Girin…">
+            <input type="submit" value="GÖNDER">
+        </form>
 
-            <div class="row">
-                
-                <div class="col-lg-6 mx-auto sayfaArkaplan">
-                                      
-                    <h3 style="text-align: center"><i>HOBİLERİM</i></h3>
-                    <p>
-                        İlk olarak hobilerim arasında bisiklet sürmek var , bana her zaman çok keyif vermiştir. Çocukken kuzenimle
-                        aynı yerde saatlerce sürerdik ve ikimizde hiç sıkılmazdık. Hala beraber yazın köye gittiğimizde sürüyoruz  
-                        aynı eskisi gibi çok keyif veriyor.
-                    </p>
-                    
-                    <img style="display: block; margin: auto;" src="resimler/bisiklet.jpeg" width="200px" >
-                 
-                    <p>
-                        <br>Dizi, film izlemek beniim için her zaman rahtalatcı ve keyif veren bir şey olmuştur. Özellikle yabancı dizileri,
-                        filmleri izlemeyi çok severim. Eve atıştırmalık bir şeyler alıp bir şeyler izlemek hobilerim arasındadır. 
-                    </p>
-          
-                    <img style="display: block; margin: auto;" src="resimler/film.jpeg" width="200px" >   
-                    
-                    <p><br><b>İLGİ ALANLARIM SAYFASINA GİTMEK İÇİN <a href="ilgialani.html">TIKLAYINIZ</a></b></p>
-
-                </div> 
-
-            </div>    
-
-        </div>
-    
     </body>
-    
+
     </html>
+
+
+<?php
+
+ if (isset($_POST['kullanici'], $_POST['sifre'] ) && ($_POST['kullanici']!='b221210089@sakarya.edu.tr') && ($_POST['sifre']!='b221210089')) 
+    {
+      echo "Kayıt İşleminiz Yapıldı...";
+      echo "<b>".$_POST['adi'] . ' ' . $_POST['soyadi']."</b>";
+    }
+    else
+    {
+       echo"Bilgilerinizi Kontrol Edip Tekrar Giriş Yapın. <br> Eksik Bilgi Girdiniz...";
+    }
+
+echo "<p> <a href='login.html'>&lt;GERİ DÖN&gt;</a></p> ";
+?>
