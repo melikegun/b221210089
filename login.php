@@ -52,30 +52,41 @@
         </nav>
         
         
-        <form action="login.php" method="post">
-            Kullanıcı Adı:<br>
-            <input type="text" name="kullanici"  placeholder="Kullanıcı Adınızı Girin…"><br>
-            Şifre:<br>
-            <input type="password" name="sifre"  placeholder="Şifrenzizi Girin…">
-            <input type="submit" value="GÖNDER">
-        </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Kullanıcı adı ve şifre alınır
+        $kullaniciAdi = test_input($_POST["kullaniciAdi"]);
+        $sifre = test_input($_POST["sifre"]);
 
-    </body>
-
-    </html>
-
-
-<?php
-
- if (isset($_POST['kullanici'], $_POST['sifre'] ) && ($_POST['kullanici']!='b221210089@sakarya.edu.tr') && ($_POST['sifre']!='b221210089')) 
-    {
-      echo "Kayıt İşleminiz Yapıldı...";
-      echo "<b>".$_POST['adi'] . ' ' . $_POST['soyadi']."</b>";
-    }
-    else
-    {
-       echo"Bilgilerinizi Kontrol Edip Tekrar Giriş Yapın. <br> Eksik Bilgi Girdiniz...";
+        // Kullanıcı adı ve şifre kontrol edilir
+        if ($kullaniciAdi == "b221210089@sakarya.edu.tr" && $sifre == "b221210089") {
+            echo "Hoşgeldiniz: " . $sifre;
+            // Burada giriş işlemi başarılı olduğunda yapılacak işlemleri gerçekleştirebilirsiniz.
+        } else {
+            echo "Giriş başarısız. Lütfen tekrar deneyin.";
+            // Giriş başarısız olduğunda kullanıcıyı giriş sayfasına yönlendirebilirsiniz.
+        }
     }
 
-echo "<p> <a href='login.html'>&lt;GERİ DÖN&gt;</a></p> ";
-?>
+    // Form verilerini düzgünleştirir ve güvenli hale getirir
+    function test_input($veri) {
+        $veri = trim($veri);
+        $veri = stripslashes($veri);
+        $veri = htmlspecialchars($veri);
+        return $veri;
+    }
+    ?>
+
+    <h2>Öğrenci Girişi</h2>
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <label for="kullaniciAdi">Kullanıcı Adı:</label>
+        <input type="text" name="kullaniciAdi" required>
+        <br><br>
+        <label for="sifre">Şifre:</label>
+        <input type="password" name="sifre" required>
+        <br><br>
+        <input type="submit" value="Giriş">
+    </form>
+
+</body>
+</html>
