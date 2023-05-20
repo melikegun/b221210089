@@ -1,38 +1,46 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('contactForm');
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); // Sayfa yenilenmesini engelle
-  
-      var name = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var phone = document.getElementById('phone').value;
-      var gender = document.getElementById('gender').value;
-      // Diğer form elemanlarından değerleri al
-  
-      displaySubmittedData(name, email, phone, gender);
-      form.reset(); // Formu sıfırla
-    });
+document.addEventListener("DOMContentLoaded", function() {
+  var clearButton = document.getElementById("clearButton");
+  var submitButton = document.getElementById("submitButton");
 
+  clearButton.addEventListener("click", clearForm);
+  submitButton.addEventListener("click", validateForm);
+});
 
-    function displaySubmittedData(name, email, phone, gender, birthdate, newsletter, avatar, message) {
-        var nameOutput = document.getElementById('nameOutput');
-        var emailOutput = document.getElementById('emailOutput');
-        var phoneOutput = document.getElementById('phoneOutput');
-        var genderOutput = document.getElementById('genderOutput');
-        var birthdateOutput = document.getElementById('birthdateOutput');
-        var newsletterOutput = document.getElementById('newsletterOutput');
-        var avatarOutput = document.getElementById('avatarOutput');
-        var messageOutput = document.getElementById('messageOutput');
-      
-        nameOutput.textContent = 'İsim: ' + name;
-        emailOutput.textContent = 'E-posta: ' + email;
-        phoneOutput.textContent = 'Telefon: ' + phone;
-        genderOutput.textContent = 'Cinsiyet: ' + gender;
-        birthdateOutput.textContent = 'Doğum Tarihi: ' + birthdate;
-        newsletterOutput.textContent = 'Bülten Aboneliği: ' + (newsletter ? 'Evet' : 'Hayır');
-        avatarOutput.textContent = 'Avatar: ' + avatar;
-        messageOutput.textContent = 'Mesaj: ' + message;
-      
-        document.getElementById('submittedData').style.display = 'block';
-      }
-  });
+function clearForm() {
+  document.getElementById("contactForm").reset();
+}
+
+function validateForm() {
+  var isim = document.getElementById("isim").value;
+  var soyad = document.getElementById("soyad").value;
+  var email = document.getElementById("email").value;
+  var mesaj = document.getElementById("mesaj").value;
+  var numara = document.getElementById("numara").value;
+  var cinsiyet = document.getElementById("cinsiyet").value;
+  var tarih = document.getElementById("tarih").value;
+  var sehir = document.getElementById("sehir").value;
+  
+
+  if (isim && email && mesaj) {
+    if (isValidEmail(email)) {
+      document.getElementById("isimOutput").textContent = "İsim: " + isim;
+      document.getElementById("soyadOutput").textContent = "Soyad: " + soyad;
+      document.getElementById("emailOutput").textContent = "E-posta: " + email;
+      document.getElementById("mesajOutput").textContent = "Mesaj: " + mesaj;
+      document.getElementById("numaraOutput").textContent = "Telefon: " + numara;
+      document.getElementById("cinsiyetOutput").textContent = "Cinsiyet: " + cinsiyet;
+      document.getElementById("tarihOutput").textContent = "Doğum Tarihi: " + tarih;
+      document.getElementById("sehirOutput").textContent = "Şehir: " + sehir;
+      document.getElementById("submittedData").style.display = "block";
+    } else {
+      alert("Geçerli bir e-posta adresi giriniz.");
+    }
+  } else {
+    alert("Tüm alanları doldurunuz.");
+  }
+}
+
+function isValidEmail(email) {
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}

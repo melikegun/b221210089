@@ -39,34 +39,54 @@ p{
     padding: 20px;
 }
 
-form {
-    margin-bottom: 20px;
-  }
-  
-  form div {
-    margin-bottom: 10px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 5px;
-  }
-  
-  button {
-    padding: 10px 20px;
-  }
-  
-  #submittedData {
-    background-color: #f5f5f5;
-    padding: 20px;
-    margin-top: 20px;
-  }
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
 
+h1 {
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 5px;
+}
+
+form button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#submitted-data {
+  margin-top: 50px;
+}
+
+#data-list {
+  list-style: none;
+}
+
+#data-list li {
+  margin-bottom: 10px;
+}
 

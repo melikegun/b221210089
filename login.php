@@ -12,7 +12,7 @@
     
     <body id="arkaplanresim">
         
-        <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
             
             <div class="container-fluid">
                 
@@ -24,23 +24,22 @@
                     
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> BİLGİLER <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="hakkimda.html">Hakkımda</a></li>
+                            <li><a href="index.html">Hakkımda</a></li>
                             <li><a href="ilgialani.html">İlgi Alanlarım</a></li>
-                            <li><a href="hobiler.html">Hobilerim</a></li>
                         </ul>
                     </li>
-
+                    
                     <li><a href="cv.html">EĞİTİM</a></li>
 
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> ŞEHRİM <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="sehrim.html">İSTANBUL</a></li>
-                            <li><a href="gezilecekyerler.html">GEZİLECEK YERLER</a></li>
-                            <li><a href="mirasimiz.html">MİRASIMIZ</a></li>
+                            <li><a href="sehrim.html">İstanbul</a></li>
+                            <li><a href="gezilecekyerler.html">Gezilecek Yerler</a></li>
+                            <li><a href="mirasimiz.html">Mirasımız</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="iletisim.html">İletişim</a></li>
+                    <li><a href="iletisim.html">İLETİŞİM</a></li>
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-right">
@@ -51,24 +50,22 @@
 
         </nav>
         
-        
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Kullanıcı adı ve şifre alınır
+
         $kullaniciAdi = test_input($_POST["kullaniciAdi"]);
         $sifre = test_input($_POST["sifre"]);
 
-        // Kullanıcı adı ve şifre kontrol edilir
+ 
         if ($kullaniciAdi == "b221210089@sakarya.edu.tr" && $sifre == "b221210089") {
             echo "Hoşgeldiniz: " . $sifre;
-            // Burada giriş işlemi başarılı olduğunda yapılacak işlemleri gerçekleştirebilirsiniz.
+ 
         } else {
             echo "Giriş başarısız. Lütfen tekrar deneyin.";
-            // Giriş başarısız olduğunda kullanıcıyı giriş sayfasına yönlendirebilirsiniz.
+      
         }
     }
 
-    // Form verilerini düzgünleştirir ve güvenli hale getirir
     function test_input($veri) {
         $veri = trim($veri);
         $veri = stripslashes($veri);
