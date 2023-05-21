@@ -43,43 +43,26 @@
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
 
             </div>
-        
         </nav>
         
-        <?php
+        <h2>GİRİŞ</h2>
         
-        if ($_SERVER["REQUEST_METHOD"] == "POST") 
-        {
-            $username = test_input($_POST["username"]);
-            $password = test_input($_POST["password"]);
+        <form action="login.php" method="POST">
             
-            if ($username == "b221210089@sakarya.edu.tr" && $password == "b221210089") 
-            {
-                echo "<h2 class='welcome-message'>Hoşgeldiniz \"$password\"</h2>";
-            } 
-
-            else 
-            {
-                echo "<h2 class='welcome-message'>Giriş başarısız. Lütfen tekrar deneyin.</h2>";
-      
-            }
-        }
-        
-        function test_input($veri) 
-        {
-            $veri = trim($veri);
-            $veri = stripslashes($veri);
-            $veri = htmlspecialchars($veri);
-            
-            return $veri;
-        }
-        
-        ?>
-        
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" id="username" name="username" required><br><br>
     
-    </body>   
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" required><br><br>
+    
+            <input type="submit" value="Giriş Yap">
+
+        </form>
+    
+    </body>
+    
     </html>
